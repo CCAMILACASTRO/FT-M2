@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra primer demo</title>
+    <style>
+
+        .recuadro{
+            border: 1px solid black;
+            background-color: pink;
+            border-radius: 15px;
+            font-size: 24px;
+            width: 15rem;
+            margin: 0.5rem;
+            padding: 5px;
+            color: white;
+        }
+
+        .recuadroVerde{
+            border: 1px solid black;
+            background-color: green;
+            border-radius: 15px;
+            font-size: 24px;
+            width: 15rem;
+            margin: 0.5rem;
+            padding: 5px;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Bienvenidos al M2!!!</h1>
+    <button id="agregar">AGREGAR</button>
+    <button id="agregar1">AGREGAR 1</button>
+    <div id="contenedor" ></div>
+
+
+    <p id="parrafo1" class="clase1">¨Párrafo</p>
+    <p id="parrafo2" class="clase1">¨Párrafo</p>
+    <p id="parrafo3" class="clase3">¨Párrafo</p>
+    <p id="parrafo4" class="clase5">¨Párrafo</p>
+    <p id="parrafo5" class="clase5">¨Párrafo</p>
+
+    
+    
+</body>
+
+<!-- <script type="text/javascript" src="./demo2.js"></script> -->
+
+<script type="text/javascript">
+
+    //SELECTORES:
+
+    //Guardo en una variable la etiqueta <p> por medio de su ID
+    const miParrafo = document.getElementById('parrafo1'); 
+
+    //Tomar un elemento por su clase y devuelve TODO lo que coincide en un array [].
+    const clases = document.getElementsByClassName('clase5');
+    console.log(clases)  // HTMLCollection(2) [p#parrafo4.clase5, p#parrafo5.clase5, parrafo4: p#parrafo4.clase5, parrafo5: p#parrafo5.clase5]
+    
+    //Como acceder a la posicion de ese array:
+    console.log(clases[1]); //<p id="parrafo5" class="clase5">¨Párrafo</p>
+
+    //Tomar un elemento por el nombre de la etiqueta(tag).
+    const parrafos = document.getElementsByTagName('p')
+    console.log(parrafos) //HTMLCollection(5) [p#parrafo1.clase1, p#parrafo2.clase1, p#parrafo3.clase3, p#parrafo4.clase5, p#parrafo5.clase5, parrafo1: p#parrafo1.clase1, parrafo2: p#parrafo2.clase1, parrafo3: p#parrafo3.clase3, parrafo4: p#parrafo4.clase5, parrafo5: p#parrafo5.clase5]
+    console.log(parrafos[4]);
+
+    //Permite buscar cualquier elemento y devuelve todos los elementos que coincidan con el parametro.
+    const parrafos2 = document.querySelectorAll('p');
+    console.log(parrafos2); //NodeList(5) [p#parrafo1.clase1, p#parrafo2.clase1, p#parrafo3.clase3, p#parrafo4.clase5, p#parrafo5.clase5]
+
+    //Permite seleccionar un elemento a la vez de cualquier tipo, y devuelve el primer elemento que conicide.
+    const element = document.querySelector('#parrafo3') //por ID
+    console.log(element); //<p id="parrafo3" class="clase3">¨Párrafo</p>
+    const element1 = document.querySelector('.clase3') //por CLASE
+    console.log(element1); //<p id="parrafo3" class="clase3">¨Párrafo</p>
+
+
+    //EVENTOS:
+    //REACCIONAR CUANDO HACEMOS CLICK CON EL MOUSE:
+    //Primero seleccionamos el elemento que queremos tomar.
+    const p3 = document.querySelector('#parrafo3'); 
+    console.log(p3);
+    //Generamos un EVENTO:
+    p3.addEventListener('click', function(){ //Recibe 2 parametros (evento , function())
+        console.log('Me hicieron click')
+    }); 
+
+    //Ejemplo 2 pero primero declaramos antes la funcion y dsp solo la llamamos por el parametro.
+
+    const clickHandler = function(){
+        console.log('Venimos bien!')
+    }
+
+    const buttonAgregar = document.querySelector('#agregar')
+    buttonAgregar.addEventListener('click', clickHandler);
+
+    //Ejemplo 3: cuando hagamos click que se generen cuadrados de <div>
+    
+    const buttonAgregar1 = document.querySelector('#agregar1')
+    
+    const cambiarColor = function(event){  //Recibimos por parametro el evento que es un objeto
+        const elemento = event.target //Estoy haciendo referencia a la div que le quiero aplicar el evento
+        if(elemento.className === 'recuadro'){  //Si el elemento tiene una clase 'recuadro'...
+            elemento.classNAme = 'recuadroVerde' //que le cambie por medio de la clase 'recuadroVerde'
+        } else {
+            elemento.className = 'recuadro' //Caso contrario que se cambie al color de la clase 'recuadro'
+        }
+    }
+    
+    const generarCuadrados = function(){
+        const contenedor = document.querySelector('#contenedor') //Tomamos la div que queremos que se agregue
+        
+        const newDiv = document.createElement('div') //Creamos nuevas divs
+        newDiv.innerText ='Holi, FT 41b!'; //Le agregamos texto a las divs.
+        newDiv.className = 'recuadro'; //Le agregamos la clase de estilos a la nueva div
+        newDiv.addEventListener('click', cambiarColor) //Le agregamos una nueva funcion para que cuando haga click cambie de color
+        
+        contenedor.appendChild(newDiv) //Agregamos un elemento hijo al padre.
+    }
+
+    buttonAgregar1.addEventListener('click', generarCuadrados);
+
+
+    // METODOS:
+    // Modificar o agregar texto a la etiqueta.
+    // miParrafo.innerHTML = 'Welcome to La Daianeta'; <p id="parrafo1" class="clase1">Welcome to La Daianeta</p>
+
+    // miParrafo.innerText = 'Holi, FT 41b!'
+    // console.log(miParrafo); 
+
+    //  .createElement('div') ---> crea un elemento nuevo y lo guardamos en una variable (newDiv)
+
+    // .appendChild(newDiv) ---> Agrega un elemento hijo al contenedor padre.
+
+
+
+</script>
+</html>
