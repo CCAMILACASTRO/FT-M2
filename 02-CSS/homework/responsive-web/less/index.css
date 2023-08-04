@@ -167,15 +167,15 @@ p {
   background-color: #F6F6F6;
   font-size: xx-large;
   padding-top: 1em;
-  padding-bottom: 10px;
+  padding-bottom: 1em;
   color: #454A59;
   border: 1px solid #F1F1F1;
-  width: 100%;
 }
 .menu .menu-navegacion {
   display: flex;
   flex-direction: row;
   height: 50px;
+  width: 40em;
   justify-content: center;
 }
 .menu .menu-navegacion .item-navegacion {

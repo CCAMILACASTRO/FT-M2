@@ -1,1 +1,43 @@
 // Código de Nav acá
+@import "variables";
+@import "mixins";
+
+.menu{
+    .flex(); //Dentro del mixin flex estan las propiedades
+    // display:flex;
+    // flex-direction: column;
+    // align-items: center;
+    background-color: @nav-bg;
+    font-size: xx-large;
+    padding-top: 1em;
+    padding-bottom: 10px;
+    color: @nav-font;
+    border: 1px solid @nav-border;
+    width: 100%;
+
+    .menu-navegacion{
+        display: flex;
+        flex-direction: row;
+        height: 50px;
+        justify-content: center; 
+
+        .item-navegacion{
+            font-size: medium;
+            padding: 16px;
+            color:black
+        }
+    }    
+}
+
+//Mobile:
+// Primero busco las diferencias que hay entre el diseño desktop y mobile.
+@media screen and(max-width: @phone){
+    .img-header{
+        width: 100%;
+        border-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        align-content: center;
+    }    
+}
+
