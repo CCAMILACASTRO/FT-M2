@@ -1,0 +1,61 @@
+body {
+  background-color: red;
+}
+div {
+  color: blue;
+}
+footer {
+  color: blue;
+}
+span {
+  width: 200px;
+  height: 98px;
+}
+p {
+  font-size: 30px;
+}
+/* ANIDACION DE SELECTORES:
+
+<section> 
+    <article> 
+        <p>
+
+        </p> 
+    </article>
+</section>
+*/
+section {
+  border: 1px solid red;
+}
+section article {
+  font-size: medium;
+}
+section article p {
+  background-color: lightblue;
+}
+.texto-importante {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.alerta {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.alerta2 {
+  font-weight: normal;
+  text-decoration: line-throught;
+  font-style: normal;
+  color: red;
+}
+.boton,
+.boton-rojo {
+  border-radius: 5px;
+  font-size: medium;
+  color: white;
+}
+.boton-azul {
+  background-color: blue;
+}
+.boton-rojo {
+  background-color: red;
+}

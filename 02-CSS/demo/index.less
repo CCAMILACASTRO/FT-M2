@@ -1,0 +1,103 @@
+
+//DIVIDIR EN DIFERENTES MODULOS
+//Importar codigo de otros archivos:
+
+
+body{
+    background-color: red;
+}
+
+//VARIABLES:
+
+@colorPrincipal: blue;
+@ancho: 100px;
+
+ 
+
+div{
+    color:@colorPrincipal;
+}
+
+footer{
+    color: @colorPrincipal;
+}
+
+span {
+    width: @ancho * 2;
+    height: @ancho - 2;
+}
+
+// FUNCIONES:
+p{                  //condicion    true  false
+    font-size: if((@ancho > 50px), 30px, 15px);
+}
+
+
+/* ANIDACION DE SELECTORES:
+
+<section> 
+    <article> 
+        <p>
+
+        </p> 
+    </article>
+</section>
+*/
+
+section{
+    border: 1px solid red;
+    article{
+        font-size: medium;
+        p{
+            background-color: lightblue;
+        }
+    }
+}
+
+
+//MIXINS: cuando necesita heredar propiedades con otros valores.
+.texto-importante{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.texto-importante2(@peso, @decoracion){ //ponemos los parametros que se copiaran dsp en alerta.
+    font-weight: @peso;
+    text-decoration: @decoracion;
+    font-style: normal;
+}
+
+.alerta{
+    .texto-importante();
+}
+
+.alerta2{
+    .texto-importante2(normal, line-throught); //invocarlo para crear una copia de las propiedades del selector
+    color: red;
+}
+
+//HERENCIA: cuando la propiedad y el valor que necesita heredar son iguales
+
+.boton{
+    border-radius: 5px;
+    font-size: medium;
+    color: white;
+}
+
+.boton-azul{
+    background-color: blue;
+}
+
+.boton-rojo{
+    &:extend(.boton);
+    background-color: red;
+}
+
+
+
+
+
+
+
+
+

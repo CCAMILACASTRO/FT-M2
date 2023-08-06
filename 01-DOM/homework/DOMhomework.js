@@ -33,8 +33,8 @@ function ToDo(description) {
 // Tu código acá:
 
 ToDo.prototype.completeToDo = function(){
-    this.complete = true
-    //this.complete = !this.complete (en el caso deconfundirse y querrer destachar, que haga lo contrario a lo que le dice complete  )
+    //this.complete = true
+    this.complete = !this.complete //(en el caso deconfundirse y querrer destachar, que haga lo contrario a lo que le dice complete  )
 }
 
 // Agregar dos parámetros a la función 'buildToDo':
@@ -69,7 +69,7 @@ function buildToDo(todo, index) {  // todo : ToDo {description: '', complete: fa
     toDoText.className = 'completeText'
   }  
 
-  toDoShell.appendChild(toDoText)
+  toDoShell.appendChild(toDoText) //Agregar 'toDoText' como hijo de 'toDoShell'
 
   return toDoShell;
 }
@@ -151,7 +151,8 @@ function addToDo() {
 // Tu código acá:
 
 let agregarBoton = document.querySelector('#addButton')
-agregarBoton.addEventListener('click', addToDo) //Cuando hablamos de EVENTOS le pasamos la fn como parametro SIN INVOCARLA porque solo necesitamos su valor de retorno y no la ejecucion.
+agregarBoton.addEventListener('click', addToDo) 
+//Cuando hablamos de EVENTOS le pasamos la fn como parametro SIN INVOCARLA porque solo necesitamos su valor de retorno y no la ejecucion.
 
 
 

@@ -1,0 +1,97 @@
+// Importar código de otros archivos
+@import "variables";
+@import "enlaces";
+
+body {
+  background-color: red;
+}
+
+// Variables
+
+div {
+  color: @colorPrincipal;
+}
+
+footer {
+  color: @colorPrincipal;
+}
+
+span {
+  width: @ancho * 2;
+  height: @ancho - 2;
+}
+
+// Funciones
+
+p {
+  font-size: if((@ancho > 50px), 30px, 15px);
+}
+
+// Anidación de Selectores
+
+/*
+<section>
+<article>
+<p>
+...
+</p>
+</article>
+</section>
+*/
+
+section {
+  border: 1px solid red;
+  article {
+    font-size: medium;
+    p {
+      background-color: lightblue;
+    }
+  }
+}
+
+// MIXINS (con o sin parámetros)
+
+.texto-importante {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.texto-importante-2(@peso, @decoracion) {
+  font-weight: @peso;
+  text-decoration: @decoracion;
+  font-style: normal;
+}
+
+.texto-importante-3(@peso, @decoracion: none) {
+  font-weight: @peso;
+  text-decoration: @decoracion;
+  font-style: normal;
+}
+
+.alerta {
+  .texto-importante-3(normal);
+  color: red;
+}
+
+.alerta-2 {
+  .texto-importante-3(bold);
+  color: yellow;
+}
+
+// Herencia
+
+.boton {
+  border-radius: 5px;
+  font-size: medium;
+  color: antiquewhite;
+}
+
+.boton-rojo {
+  &:extend(.boton);
+  background-color: red;
+}
+
+.boton-azul {
+  &:extend(.boton);
+  background-color: blue;
+}
