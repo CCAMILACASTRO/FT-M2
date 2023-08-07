@@ -11,15 +11,16 @@ export default function Bienvenido() {
     <div>
       <h1>Practicando con React</h1>
       <h3>{studentName}</h3>
+      {/* La ul va por fuera del codigo para que pueda ser renderizada */}
+      <ul> 
       {
         techSkills.map(skills =>{
           return(
-            <ul>
               <li>{skills}</li>
-            </ul>
           )
         })
       }
+      </ul>
       <Botones alerts= {alerts}/>
     </div>
 
